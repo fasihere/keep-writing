@@ -1,0 +1,56 @@
+.write{
+    padding-top: 50px;
+
+    img{
+        margin-left: 150px;
+        width: 70vw;
+        height: 250px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .form{
+        position: relative;
+        .group{
+            margin-left: 150px;
+            display: flex;
+            align-items: center;
+            i{
+                font-size: 20px;
+                color: rgb(120, 119, 119);
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                border: 1px solid;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+            .input{
+                font-size: 30px;
+                border: none;
+                padding: 20px;
+                width: 70vw;
+                &:focus{
+                    outline: none;
+                }
+            }
+            .text{
+                font-size: 20px;
+                height: 100vh;
+            }
+        }
+        .submit{
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            background-color: teal;
+            color: white; 
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+}
