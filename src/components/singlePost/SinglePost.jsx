@@ -17,11 +17,7 @@ import './singlePost.scss'
 
      const handleDelete = async () => {
         try{
-<<<<<<< HEAD
             await axios.delete("https://my-blog-app-backend.herokuapp.com/api/posts/" + path, {data:{username: user.username}});
-=======
-            await axios.delete("/posts/" + path, {data:{username: user.username}});
->>>>>>> 4f74ed92f6721a5128fe14bce353d3a69430b2a4
             window.location.replace("/");
         } catch(err){
             console.log(err)
