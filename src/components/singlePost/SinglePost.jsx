@@ -17,7 +17,7 @@ import './singlePost.scss'
 
      const handleDelete = async () => {
         try{
-            const res = await axios.delete("/posts/" + path, {data:{username: user.username}});
+            await axios.delete("/posts/" + path, {data:{username: user.username}});
             window.location.replace("/");
         } catch(err){
             console.log(err)
@@ -25,7 +25,7 @@ import './singlePost.scss'
      }
      const handleUpdate = async () => {
         try{
-            const res = await axios.put(`/posts/${post._id}`, {
+            await axios.put(`/posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc
@@ -60,7 +60,7 @@ import './singlePost.scss'
                     /> : (
                     <h1 className="title">
                         {post.title}
-                        {post.username == user?.username &&
+                        {post.username === user?.username &&
                             (<div className="edit">
                                 <i className="icon far fa-edit" onClick={() => setUpdateMode(true)}></i>
                                 <i className="icon far fa-trash-alt" onClick={handleDelete}></i>

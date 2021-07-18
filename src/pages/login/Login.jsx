@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './login.scss'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useContext } from 'react'
 import { Context } from '../../context/Context'
 import axios from 'axios'
