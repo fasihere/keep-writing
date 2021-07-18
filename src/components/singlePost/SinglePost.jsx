@@ -7,7 +7,7 @@ import './singlePost.scss'
  
  export default function SinglePost() {
      const { user } = useContext(Context)
-     const PF = "http://localhost:5000/images/"
+     const PF = "https://my-blog-app-backend.herokuapp.com/images/"
      const location = useLocation ()
      const path = location.pathname.split("/")[2];
      const [post, setPost] = useState({});
@@ -17,7 +17,7 @@ import './singlePost.scss'
 
      const handleDelete = async () => {
         try{
-            const res = await axios.delete("/posts/" + path, {data:{username: user.username}});
+            await axios.delete("https://my-blog-app-backend.herokuapp.com/api/posts/" + path, {data:{username: user.username}});
             window.location.replace("/");
         } catch(err){
             console.log(err)
@@ -25,7 +25,7 @@ import './singlePost.scss'
      }
      const handleUpdate = async () => {
         try{
-            const res = await axios.put(`/posts/${post._id}`, {
+            await axios.put(`https://my-blog-app-backend.herokuapp.com/api/posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc
@@ -37,7 +37,7 @@ import './singlePost.scss'
      }
      useEffect(() => {
          const getPost = async() => {
-            const res = await axios.get("/posts/" + path);
+            const res = await axios.get("https://my-blog-app-backend.herokuapp.com/api/posts/" + path);
             setPost(res.data)
             setTitle(res.data.title)
             setDesc(res.data.desc)
@@ -60,7 +60,7 @@ import './singlePost.scss'
                     /> : (
                     <h1 className="title">
                         {post.title}
-                        {post.username == user?.username &&
+                        {post.username === user?.username &&
                             (<div className="edit">
                                 <i className="icon far fa-edit" onClick={() => setUpdateMode(true)}></i>
                                 <i className="icon far fa-trash-alt" onClick={handleDelete}></i>

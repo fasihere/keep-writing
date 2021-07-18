@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './login.scss'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { useContext } from 'react'
 import { Context } from '../../context/Context'
 import axios from 'axios'
@@ -13,7 +13,7 @@ export default function Login() {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-          const res = await axios.post("/auth/login", {
+          const res = await axios.post("https://my-blog-app-backend.herokuapp.com/api/auth/login", {
             username: userRef.current.value,
             password: passRef.current.value,
           });

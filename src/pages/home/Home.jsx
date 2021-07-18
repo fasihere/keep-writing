@@ -12,8 +12,12 @@ export default function Home() {
     const {search} = useLocation()
         useEffect(() => {
             const fetchPosts = async () => {
-                const res = await axios.get("/posts"+search)
-                setPosts(res.data)
+                try {
+                    const res = await axios.get("https://my-blog-app-backend.herokuapp.com/api/posts"+search)
+                    setPosts(res.data)
+                } catch (err) {
+                    console.log("Obviously an error: ",err.response)
+                }
             }
             fetchPosts()
         },[search])
